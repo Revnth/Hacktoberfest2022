@@ -13,7 +13,7 @@ if use_punctuation_answer.lower() == "n":
 else:
     use_punctuation = True
  
-password_length_answer = input("Enter Length of the password max=[10]: ")
+password_length_answer = input("Enter length of the password max=[10]: ")
 if password_length_answer == "":
     password_length = 10
 else:
