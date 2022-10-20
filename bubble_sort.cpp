@@ -29,7 +29,7 @@ int main()
 	int arr[] = { 5, 1, 4, 2, 8};
 	int N = sizeof(arr) / sizeof(arr[0]);
 	bubbleSort(arr, N);
-	cout << "Sorted array: \n";
+	cout << "Sorted array:\n";
 	printArray(arr, N);
 	return 0;
 }
