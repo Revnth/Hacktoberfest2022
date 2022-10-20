@@ -31,5 +31,8 @@ int main()
 	bubbleSort(arr, N);
 	cout << "Sorted array: \n";
 	printArray(arr, N);
+	printArray(arr, N);
+	printArray(arr, N);
+	
 	return 0;
 }
