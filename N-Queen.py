@@ -1,5 +1,4 @@
-""" Python3 program to solve N Queen Problem using
-backtracking """
+
 N = 4
 
 """ ld is an array where its indices indicate row-col+N-1
