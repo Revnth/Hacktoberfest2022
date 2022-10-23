@@ -1,67 +1,57 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main () {
-    int pin=1234, enteredPin, opt, amt=1, cnt=0, continueTransaction=1;
-    float bal = 10000;
+int main(){
+    float total_amount,transfer,deposite,withdraw,cheak_balance;
+    int pin,password,user_input;
 
-    printf("\n\t\t\t= = = = = = = = = = = = = = = = = = = = *Welcome to ATM* = = = = = = = = = = = = = = = = = = = =");
-
-    while (pin != enteredPin) {
-        printf("\nPlease enter your PIN : ");
-        scanf("%d", &enteredPin);
-        if (enteredPin != pin) {
-            printf("Invalid Pin !!!\n");
-            cnt++;
-        }
-        if (cnt == 3 && enteredPin != pin) {
-            exit(0);        }
+    printf("Create your PIN to enter in your account\n");
+    scanf("%d", &password);
+    printf("Enter the starting amount to enter in account\n");
+    scanf("%f", &total_amount);
+    printf("1.) Check balance.\n2.) Deposite\n3.) Withdraw.\n4.) Transfer.\n");
+    scanf("%d", &user_input);
+    printf("Enter pin\n");
+    scanf("%d", &pin);
+     
+    if (pin==password)
+    {
+    switch (user_input)
+    {
+    case 1:
+       printf("Your total balance in your account is %f", total_amount);
+        
+        break;
+    case 2:
+        printf("Enter amount to deposite\n");
+        scanf("%f", &deposite);
+        float net_balance_after;
+        net_balance_after = total_amount + deposite;
+        printf("Net balance after deposite is %f", net_balance_after);
+        break;
+    case 3:
+        printf("Enter amount to withdraw\n");
+        scanf("%f", &withdraw);
+        float balance_after_withdraw;
+        balance_after_withdraw = total_amount - withdraw;
+        printf("Net balance after withdraw %f", balance_after_withdraw);
+        break;
+    case 4:
+        printf("Enter amount to tranfer\n");
+        scanf("%f", &transfer);
+        float balance_after_transfer;
+        balance_after_transfer = total_amount - transfer;
+        printf("Net balance after transfer is %f", balance_after_transfer);
+        break;
+    
+    default:
+         printf("Enter valid user input");
+        break;
     }
 
-    while (continueTransaction != 0) {
-        printf("\n\t\t\t\t\t\t==========*Available Transactions*==========");
-        printf("\n\n\t\t1.Withdraw");
-        printf("\n\t\t2.Deposit");
-        printf("\n\t\t3.Check Balance");
-        printf("\n\n\t\tPlease select the option : ");
-        scanf("%d", &opt);
-
-        switch (opt) {
-            case 1: 
-                while (amt%500 != 0) {
-                    printf("\n\t\tEnter the amount : ");
-                    scanf("%d", &amt);
-                    if (amt%500 != 0) {
-                        printf("\n\t\t\t\t\t\tThe amount should be multiple of 500\n");
-                    }
-                }
-                if (bal < amt) {
-                    printf("\n\t\t\t\t\t\tInsufficient Balance\n");
-                    amt = 1;
-                    break;
-                }
-                else {
-                    bal = bal - amt;
-                    printf("\n\t\t\t\t\tYou have withdrawn Rs.%d. Your new balance is Rs.%.2f\n", amt, bal);
-                    amt = 1;
-                    break;
-                }
-            case 2:    
-                printf("\n\t\t\t Please enter the amount : ");
-                scanf("%d", &amt);
-                bal = bal + amt;
-                printf("\n\t\t\t\t\tYou have deposited Rs.%d. Your new balance is Rs.%.2f\n", amt, bal);
-                amt = 1;
-                break;
-            case 3: 
-                printf("\n\t\t\t\t\t\tYour current balance is Rs.%.2f\n", bal);
-                break;
-            default:
-                printf("\n\t\t\t\t\t\tInvalid Option !!!\n");    
-        }
-        printf("\n\t\tDo you wish to perform another transaction?\n\t\tPress 1 for YES\n\t\tPress 0 for NO\n\t\t");
-        scanf("%d", &continueTransaction);
     }
-    printf("\n\t\t\t= = = = = = = = = = = = = = = = = *Thank you for using the ATM* = = = = = = = = = = = = = = = = =");
-    printf("\n\t\t\t\t\t\t\t\tHave a Good Day\n");
+    else
+    {
+        printf("Your password is wrong. so repeat process again");
+    }
+   
 }
