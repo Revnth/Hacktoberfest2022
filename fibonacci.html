@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        /* check the output in the console */
-        const number = parseInt(prompt('Enter the number of terms: '));
-        let n1 = 0, n2 = 1, nextTerm;
-
-        console.log('Fibonacci Series:');
-
-        for (let i = 1; i <= number; i++) {
-            console.log(n1);
-            nextTerm = n1 + n2;
-            n1 = n2;
-            n2 = nextTerm;
+      /* check the output in the console */
+      let arr = [0, 1, 1];
+      function fabonacci(n) {
+        if (arr.length <= n) {
+          arr[n] = fabonacci(n - 2) + fabonacci(n - 1);
         }
-    </script>
-</body>
+        return arr[n];
+      }
 
+      const number = parseInt(prompt("Enter the number of terms: "));
+      fabonacci(number)
+      console.log(arr);
+    </script>
+  </body>
 </html>
